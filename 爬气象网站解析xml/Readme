@@ -1,0 +1,38 @@
+1,从网上爬下来
+2,变成xml文件
+3，解析该xml文件
+4,按照用户请求显示信息
+根节点ArrayOfString
+li={"type":"直辖市","caption":"上海","num1":58367,"num1.jpg","58367.jpg"
+
+}
+
+<ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://WebXml.com.cn/">
+<string name="type">直辖市</string>
+<string name="caption">上海</string>
+<string name="num1">58367</string>
+<string name="num2">58367.jpg</string>
+<string name="date_time">2017-2-13 22:28:57</string>
+<string name="temperature">4℃/13℃</string>
+<string name="date_weather">2月13日 晴</string>
+<string name="wind">南风转东南风微风</string>
+<string name="blank01">0.gif</string>
+<string name="blank02">0.gif</string>
+<string name="weather_details">今日天气实况：气温：7℃；风向/风力：北风 0级；湿度：46%；紫外线强度：中等。空气质量：中。</string>
+<string name="weather_others">
+紫外线指数：中等，涂擦SPF大于15、PA+防晒护肤品。 感冒指数：较易发，天凉温差大，适当增减衣服。 穿衣指数：较冷，建议着厚外套加毛衣等服装。 洗车指数：较适宜，无雨且风力较小，易保持清洁度。 运动指数：较适宜，气温较低，推荐您进行室内运动。 空气污染指数：中，易感人群应适当减少室外活动。
+</string>
+<string name="temperature">6℃/14℃</string>
+<string>2月14日 晴转多云</string>
+<string>东南风微风</string>
+<string>0.gif</string>
+<string>1.gif</string>
+<string>8℃/14℃</string>
+<string>2月15日 晴转多云</string>
+<string>东南风转南风微风</string>
+<string>0.gif</string>
+<string>1.gif</string>
+<string>
+上海简称：沪，位置：上海地处长江三角洲前缘，东濒东海，南临杭州湾，西接江苏，浙江两省，北界长江入海，正当我国南北岸线的中部，北纬31°14′，东经121°29′。面积：总面积7823.5平方公里。人口：人口1000多万。上海丰富的人文资源、迷人的城市风貌、繁华的商业街市和欢乐的节庆活动形成了独特的都市景观。游览上海，不仅能体验到大都市中西合壁、商儒交融、八方来风的氛围，而且能感受到这个城市人流熙攘、车水马龙、灯火璀璨的活力。上海在中国现代史上占有着十分重要的地位，她是中国共产党的诞生地。许多震动中外的历史事件在这里发生，留下了众多的革命遗迹，处处为您讲述着一个个使人永不忘怀的可歌可泣的故事，成为包含民俗的人文景观和纪念地。在上海，每到秋祭，纷至沓来的人们在这里祭祀先烈、缅怀革命历史,已成为了一种风俗。大上海在中国近代历史中，曾是风起云涌可歌可泣的地方。在这里荟萃多少风云人物，散落在上海各处的不同住宅建筑，由于其主人的非同寻常，蕴含了耐人寻味的历史意义。这里曾留下许多革命先烈的足迹。瞻仰孙中山、宋庆龄、鲁迅等故居，会使您产生抚今追昔的深沉遐思，这里还有无数个达官贵人的住宅，探访一下李鸿章、蒋介石等人的公馆，可以联想起主人那段显赫的发迹史。
+</string>
+</ArrayOfString>

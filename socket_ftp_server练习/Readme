@@ -1,0 +1,55 @@
+这是个ftp程序
+1,首先这个程序能够登陆，多人登陆,多人上传
+2,ftp主要的用途是文件上传和下载
+>> connect 192.168.1.1:9999
+请输入用户名
+请输入密码
+xxx登陆成功
+有以下操作
+>> ls
+xxx
+xxx
+>> cd ./xxx/xxx
+>> put a.txt
+>> get k.jpg
+>> unzip k.zip
+>> help
+>> ls_server
+xxx xxx
+xxx xxx
+
+多用户上传下载，上传到同一个地方，下载到本地每个用户目录下
+无法直接操作远程文件，只能查看，切换目录等，本地可操作、解压等操作
+
+服务还能有多个，必要条件，服务必须启动，让客户端来找
+
+本服务有一个客户端client.py和一个服务器端server.py，
+客户端的命令行格式：
+client.py     需要后期输入地址和用户
+client.py 127.0.0.1:9999      只需要后期输入和用户
+client.py 127.0.0.1:9999 -u euewrqe -p 123456     不用输入直接过
+
+服务端本想扩展一个manage,运行后需要输入server开始服务
+进入后可help查看
+
+
+
+
+normalsocketserver类和normalsocketclient客户端分别继承socketserver和socket类，目的是为了更方便调用，
+写了一个recv_data和send_data封装了recv和sendall,默认传string，
+自动转换成bytes,这样就不用手动转换了，如要传bytes直接传入，也可以直接调用官方的函数。
+在此之上，服务器和客户端又封装了recvmore_data和sendmore_data能接受的更多数据，解决粘包问题
+recvall_data和sendall_data能接受更多数据, 解决几乎所有的粘包问题
+
+在以上两个类的基础上再次被socketfile类和clientfile类继承，用于解决文件传输问题和断点续传。
+分别可以用自动传送和迭代传送，自动传送：一次性传完，迭代传送使用yield，每次传送一行可以与外界交互。
+可以增加进度条，还可以做一些其他事。
+为了便于公用性，两个类分别为MySocketServer和MySocketClient
+
+hashlib在以前自动生成md5的基础上实现yield迭代生成，为了实现文件md5生成，
+在此之上又做了一个自动生成文件的md5的函数，传入文件名,返回生成
+
+一个通用的进度条工具和一个通用的存储单位换算工具和一个通用的套用颜色代码工具。
+
+
+多用户登陆，由服务器识别。

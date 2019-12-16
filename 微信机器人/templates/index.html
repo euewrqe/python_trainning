@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<form id="send_msg_frame">
+
+
+    <label for="msg-inp">消息</label>
+    <input type="text" id="msg-inp" name="msgInp"  />
+
+
+    <input type="hidden" name="from_user" value="{{ other_person_list.User.UserName }}"  />
+
+    <label for="to_user">用户</label>
+    <input type="text" id="to_user" name="to_user" />
+    <input type="button" value="发送" onclick="sendMsg()" />
+</form>
+
+
+<h3>用户</h3>
+<div>昵称:{{ other_person_list.User.NickName }}</div>
+<div>用户名:{{ other_person_list.User.UserName }}</div>
+<div><img src="/webwxgeticon/?url={{ other_person_list.User.HeadImgUrl }}" alt=""></div>
+
+<h3>最近联系人</h3>
+<ul>
+    {% for member in contact_person_list.MemberList %}
+    <li>
+        <div>{{ member.NickName }}-----{{ member.UserName }}</div>
+        <div><img src="/webwxgeticon/?url={{ member.HeadImgUrl }}" alt=""></div>
+    </li>
+    {% endfor %}
+    
+
+</ul>
+<a href="/">退出</a>
+<script src="/static/jquery-1.12.4.js"></script>
+<script>
+    function sendMsg() {
+        $.ajax({
+            url: "/send-msg/",
+            type: "POST",
+            data: $("#send_msg_frame").serialize(),
+            dataType: "JSON",
+            success: function () {
+
+            }
+        })
+    }
+</script>
+</body>
+</html>

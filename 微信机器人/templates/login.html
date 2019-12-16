@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .img{
+            height: 200px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login_box">
+    <div class="qrcode">
+        <img class="img" src="https://login.weixin.qq.com/qrcode/{{ qrcode }}" id="img" />
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<script src="/static/jquery-1.12.4.js"></script>
+<script src="/static/jquery.cookie.js"></script>
+<script>
+    TIP = 1;
+
+    $(document).ready(function () {
+        get_jslogin();
+
+    })
+
+    function get_jslogin(){
+        $.ajax({
+            url: "/jslogin/?timestamp={{ timestamp }}&qrcode={{ qrcode }}&tip=" + TIP,
+            type: "GET",
+            dataType: "JSON",
+            success: function (data) {
+                TIP = 0;
+                console.log(data);
+                if(data.code == "408"){
+                    get_jslogin();
+                }else if(data.code == "201"){
+                    var userAvatar = data.userAvatar;
+
+                    $('#img').attr("src", userAvatar);
+                    get_jslogin();
+                }else if(data.code == "200"){
+                    console.log(data.redirect_uri)
+                    get_redirect_uri(data.redirect_uri);
+
+                }else if(data.code == "400"){
+
+                }
+
+            }
+
+        })
+    }
+
+    function get_redirect_uri(redirect_uri){
+        $.ajax({
+            url: "/get-redirect-uri/",
+            type: "POST",
+            data: {redirect_uri: redirect_uri},
+            success: function (data) {
+                location.href = "/webwxinit/"
+            }
+
+        })
+    }
+
+
+
+
+
+
+</script>
+</body>
+</html>
